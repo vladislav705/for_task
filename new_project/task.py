@@ -19,7 +19,6 @@ async def binance():
 			global bb_ftx
 			data = await websocket1.recv()
 			data = json.loads(data)
-			await asyncio.sleep(1)
 			bb_binance = float(data['b'])
 			ba_binance = float(data['a'])
 			
