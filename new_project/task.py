@@ -51,6 +51,7 @@ async def main():
 	task1 = asyncio.create_task(binance())
 	task2 = asyncio.create_task(ftx())
 	await task1
+	await task2
 
 asyncio.run(main())
 
