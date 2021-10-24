@@ -33,7 +33,6 @@ async def ftx():
 		global bb_ftx
 		exchange = getattr(ccxt, 'ftx')({'verbose': False})
 		orderbook = await exchange.fetch_order_book('BTC/USDT')
-		ba_binance
 		ba_ftx = orderbook['asks'][0][0]
 		bb_ftx = orderbook['bids'][0][0]
 		await exchange.close()
