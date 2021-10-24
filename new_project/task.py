@@ -10,8 +10,6 @@ socket1 = 'wss://stream.binance.com:9443/ws/{}@bookTicker'.format(ticker)
 async def main():
 	async with websockets.connect(socket1) as websocket1:
 		while True:
-			await asyncio.sleep(1)
-			print('binance!!')
 			data = await websocket1.recv()
 			data = json.loads(data)
 			bb_binance = float(data['b'])
