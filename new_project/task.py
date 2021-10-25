@@ -21,6 +21,12 @@ async def binance():
 			data = json.loads(data)
 			bb_binance = float(data['b'])
 			ba_binance = float(data['a'])
+			if (bb_binance - ba_ftx) > 0 or (ba_binance - bb_ftx) <0 :
+				print("It's time for arbitrage!")
+				print('bb_binance = ', bb_binance)
+				print('ba_ftx = ', ba_ftx)
+				print('ba_binance = ', ba_binance)
+				print('bb_ftx = ', bb_ftx)
 			
 			
 				
