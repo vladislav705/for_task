@@ -2,7 +2,8 @@
 import asyncio
 import websockets
 import json
-from config import ticker
+from config import ticker, ticker_for_ftx
+
 import ccxt.async_support as ccxt
 socket1 = 'wss://stream.binance.com:9443/ws/{}@bookTicker'.format(ticker)
 ba_ftx = 0
@@ -38,7 +39,7 @@ async def ftx():
 		global ba_ftx
 		global bb_ftx
 		exchange = getattr(ccxt, 'ftx')({'verbose': False})
-		orderbook = await exchange.fetch_order_book('BTC/USDT')
+		orderbook = await exchange.fetch_order_book(ticker_for_ftx)
 		ba_ftx = orderbook['asks'][0][0]
 		bb_ftx = orderbook['bids'][0][0]
 		await exchange.close()
